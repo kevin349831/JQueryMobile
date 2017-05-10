@@ -1,3 +1,3 @@
 # JQueryMobile
 
-存放有關JQM之程式碼
+This is about JQueryMobile's Code.
