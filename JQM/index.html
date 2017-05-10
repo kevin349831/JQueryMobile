@@ -6,7 +6,10 @@
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+<!--CALL GOOGLE MAP API-->
+<!--<script src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU"></script>-->
+<!--if JS no back can no use key-->
+<script src="https://maps.google.com/maps/api/js?AIzaSyDMW2IgbawzYDDbJk-BdCqMC5ZqhOdOo_U"></script>
 <!--Load myApp.js file-->
 <script src="myApp.js"></script>
 
@@ -17,7 +20,8 @@
 	<!--My Panel-->
 	<div data-role="panel" id="myPanel">
 		<h1>Menu</h1>
-    <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+		<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+		<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
     <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
     <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
     <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
@@ -62,10 +66,11 @@
 	<!--My Panel-->
 	<div data-role="panel" id="myPane3">
    	<h1>Menu</h1>
+		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
     <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
     <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
     <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
-    <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
     <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
   </div>
    <!--My Panel End-->
@@ -76,7 +81,7 @@
   </div>
 
   <div data-role="main" class="ui-content">
-    <p>🐤🐣🐥🐤🐣🐥</p>
+    <p>Directions</p>
     <div data-role="collapsibleset">
     </div>
   </div>
@@ -91,9 +96,10 @@
 	<!--My Panel-->
 	<div data-role="panel" id="myPane4">
    	<h1>Menu</h1>
+		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
     <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
     <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
-    <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
     <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
     <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
   </div>
@@ -113,13 +119,14 @@
   </div>
 </div>
 
-<!--Demo  page5-->
+<!--Show Current Position-->
 <div data-role="page" id="page5">
 	<!--My Panel-->
 	<div data-role="panel" id="myPane5">
    	<h1>Menu</h1>
+		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
     <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
-    <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
     <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
     <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
     <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
@@ -128,11 +135,12 @@
   <div data-role="header">
   	<a href="#myPane5" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
     <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
-    <h1>Demo Show Position</h1>
+    <h1>Show Current Position</h1>
   </div>
 
   <div data-role="main" class="ui-content">
-    	<p>Show Position</p>
+    	<p id="showLatLon">Show Position</p>
+			<div id="showMap"></div>
 	</div>
 
   <div data-role="footer">
@@ -143,9 +151,10 @@
 <!--Demo Kaohsiung open data page6-->
 <div data-role="page" id="page6">
 	<!--My Panel-->
-	<div data-role="panel" id="myPane4">
+	<div data-role="panel" id="myPane6">
    	<h1>Menu</h1>
-    <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
     <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
     <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
     <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
@@ -153,7 +162,7 @@
   </div>
    <!--My Panel End-->
   <div data-role="header">
-  	<a href="#myPane4" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+  	<a href="#myPane6" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
     <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
     <h1>Demo Get OpenData</h1>
   </div>
