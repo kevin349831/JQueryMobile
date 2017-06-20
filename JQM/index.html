@@ -1,180 +1,443 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<!--CALL GOOGLE MAP API-->
-<!--<script src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU"></script>-->
-<!--if JS no back can no use key-->
-<script src="https://maps.google.com/maps/api/js?AIzaSyDMW2IgbawzYDDbJk-BdCqMC5ZqhOdOo_U"></script>
-<!--Load myApp.js file-->
-<script src="myApp.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!--CALL GOOGLE MAP API-->
+	<!--<script src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU"></script>-->
+	<!--if JS no back can no use key-->
+	<!--?key=my key-->
+	<!--<script src="https://maps.google.com/maps/api/js?key=AIzaSyA_zIG9em6okudMfE7V3xzrtOsEOcvZjQ8"></script>-->
+	<!--<script src="https://maps.google.com/maps/api/js?key=AIzaSyA_zIG9em6okudMfE7V3xzrtOsEOcvZjQ8&language=ja&region=JP"></script>-->
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyA_zIG9em6okudMfE7V3xzrtOsEOcvZjQ8&libraries=places"></script>
+	<!--Load myApp.js file-->
+	<script src="myApp.js"></script>
 
+	<!--Ajax-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 </head>
+
 <body>
-<!--page1-->
-<div data-role="page" id="page1">
-	<!--My Panel-->
-	<div data-role="panel" id="myPanel">
-		<h1>Menu</h1>
-		<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
-		<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
-    <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
-    <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
-    <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
-    <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
-	</div>
-   <!--My Panel End-->
-	<div data-role="header">
-		<a href="#myPanel" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
-		<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
-		<h1>Home Page</h1>
-	</div>
+	<!--page1-->
+	<div data-role="page" id="page1" data-theme="a">
+		<!--My Panel-->
+		<div>
+			<h1></h1>
+		</div>
+		<div data-role="panel" id="myPanel" data-theme="a">
+			<h1>Menu</h1>
+			<fieldset>
+				<div data-role="fieldcontain">
+					<select id="select-based-flipswitch" data-role="flipswitch">
+			      <option value="leave">W</option>
+			      <option value="arrive">B</option>
+			    </select>
+				</div>
+			</fieldset>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div id="dt" data-role="header" data-theme="a">
+			<a href="#myPanel" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>旅遊APP</h1>
+		</div>
 
-	<div data-role="main" class="ui-content">
-		<p>🐤🐣🐥</p>
-		<h1>Hello</h1>
-	</div>
+		<div data-role="main" class="ui-content">
+			<p>🐤🐣🐥</p>
+			<h1>Hello</h1>
+			<p>This is my first APP</p>
+			<!--<input type="checkbox" data-role="flipswitch" name="switch" id="switch">-->
 
-  <div data-role="footer">
-		<h1>By Haoyu</h1>
-  </div>
-</div>
+		</div>
 
-<!--page2-->
-<div data-role="page" data-dialog="true" id="page2">
-  <div data-role="header">
-    <h1>About Me!</h1>
-  </div>
 
-  <div data-role="main" class="ui-content">
-    <p>I'm Haoyu</p>
-    <a href="#" class="ui-btn" data-rel="back">Go Back</a>
-    <!--<a href="#page1">Go to Page One</a>-->
-  </div>
-
-  <div data-role="footer">
-    <h1>kevin349831@gmail.com</h1>
-  </div>
-</div>
-
-<!--Demo collapsible page3-->
-<div data-role="page" id="page3">
-	<!--My Panel-->
-	<div data-role="panel" id="myPane3">
-   	<h1>Menu</h1>
-		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
-    <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
-    <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
-    <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
-    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
-    <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
-  </div>
-   <!--My Panel End-->
-  <div data-role="header">
-  	<a href="#myPane3" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
-    <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
-    <h1>Demo Directions</h1>
-  </div>
-
-  <div data-role="main" class="ui-content">
-    <p>Directions</p>
-    <div data-role="collapsibleset">
-    </div>
-  </div>
-
-  <div data-role="footer">
-    <h1>By Haoyu</h1>
-  </div>
-</div>
-
-<!--Demo  page4-->
-<div data-role="page" id="page4">
-	<!--My Panel-->
-	<div data-role="panel" id="myPane4">
-   	<h1>Menu</h1>
-		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
-    <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
-    <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
-    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
-    <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
-    <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
-  </div>
-   <!--My Panel End-->
-  <div data-role="header">
-  	<a href="#myPane4" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
-    <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
-    <h1>Demo Show Position</h1>
-  </div>
-
-  <div data-role="main" class="ui-content">
-    	<p>Page4 for Show Spots</p>
+		<!--data-theme="b"  a&b can be color white or black-->
+		<div id="dt2" data-role="footer" data-theme="a">
+			<h1>By Haoyu</h1>
+		</div>
 	</div>
 
-  <div data-role="footer">
-    <h1>By Haoyu</h1>
-  </div>
-</div>
+	<!--page2-->
+	<div data-role="page" data-dialog="true" id="page2">
+		<div data-role="header">
+			<h1>About Me!</h1>
+		</div>
 
-<!--Show Current Position-->
-<div data-role="page" id="page5">
-	<!--My Panel-->
-	<div data-role="panel" id="myPane5">
-   	<h1>Menu</h1>
-		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
-    <a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
-    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
-    <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
-    <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
-    <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
-  </div>
-   <!--My Panel End-->
-  <div data-role="header">
-  	<a href="#myPane5" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
-    <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
-    <h1>Show Current Position</h1>
-  </div>
+		<div data-role="main" class="ui-content">
+			<p>I'm Haoyu</p>
+			<a href="#" class="ui-btn" data-rel="back">Go Back</a>
+			<!--<a href="#page1">Go to Page One</a>-->
+		</div>
 
-  <div data-role="main" class="ui-content">
-    	<p id="showLatLon">Show Position</p>
+		<div data-role="footer">
+			<h1>kevin349831@gmail.com</h1>
+		</div>
+	</div>
+
+	<!--Demo collapsible page3-->
+	<div data-role="page" id="page3">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane3">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane3" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>Demo Distance</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<label for="points">距離(公里)</label>
+			<input type="range" name="points" id="points" value="10" min="0" max="20" data-show-value="true" data-highlight="true">
+			<a href="#" id="p3_btn" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-top">顯示景點</a>
+			<p id="showDistance"></p>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
+	</div>
+
+	<!--Demo  page4-->
+	<div data-role="page" id="page4">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane4">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane4" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>Demo Show Position</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<div id="showMap2"></div>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
+	</div>
+
+	<!--Show Current Position-->
+	<div data-role="page" id="page5">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane5">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane5" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>Show Current Position</h1>
+		</div>
+
+
+
+		<div data-role="main" class="ui-content">
+			<a href="#" id="button1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-top">Click Me! Get Location</a>
+			<p id="showLatLon">Tap This To Show Position</p>
 			<div id="showMap"></div>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
 	</div>
 
-  <div data-role="footer">
-    <h1>By Haoyu</h1>
-  </div>
-</div>
+	<!--Demo Kaohsiung open data page6-->
+	<div data-role="page" id="page6">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane6">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane6" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>Demo Get OpenData</h1>
+		</div>
 
-<!--Demo Kaohsiung open data page6-->
-<div data-role="page" id="page6">
-	<!--My Panel-->
-	<div data-role="panel" id="myPane6">
-   	<h1>Menu</h1>
-		<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
-    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
-    <a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
-    <a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
-    <a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Directions</a>
-    <a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
-  </div>
-   <!--My Panel End-->
-  <div data-role="header">
-  	<a href="#myPane6" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
-    <a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
-    <h1>Demo Get OpenData</h1>
-  </div>
+		<div data-role="main" class="ui-content">
+			<a id="demo"></a>
 
-  <div data-role="main" class="ui-content">
-    	<p id="demo"></p>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
 	</div>
 
-  <div data-role="footer">
-    <h1>By Haoyu</h1>
-  </div>
-</div>
+
+	<!--page7-->
+	<div data-role="page" id="page7">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane7">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane7" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>Demo Google Place Library</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<label for="p7_points">距離(公里)</label>
+			<input type="range" name="p7_points" id="p7_points" value="10" min="0" max="20" data-show-value="true" data-highlight="true">
+			<a href="#" id="p7_btn" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-top">顯示Google Place Library景點</a>
+			<p id="p7_showMessage"></p>
+			<div id="p7_showSpotMap"></div>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
+	</div>
+
+
+	<!--page8-->
+	<div data-role="page" id="page8">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane8">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#page6" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane8" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>Demo Get OpenData2</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h2>景點搜尋</h2>
+			<form class="ui-filterable">
+				<input id="myFilter" data-type="search">
+			</form>
+			<ul id="page8_demo" data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+
+			</ul>
+			<div id='pop'>
+
+			</div>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
+	</div>
+
+
+	<!--Demo Kaohsiung open data page9-->
+	<div data-role="page" id="page9">
+		<div>
+			<h1></h1>
+		</div>
+		<!--My Panel-->
+		<div data-role="panel" id="myPane9">
+			<h1>Menu</h1>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data</a>
+			<a href="#page5" class="ui-btn ui-corner-all ui-shadow ui-icon-user ui-btn-icon-left" data-transition="slide">Show Position</a>
+			<a href="#page4" class="ui-btn ui-corner-all ui-shadow ui-icon-star ui-btn-icon-left" data-transition="slide">Show Spots</a>
+			<a href="#page3" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Distance</a>
+			<a href="#page7" class="ui-btn ui-corner-all ui-shadow ui-icon-forward ui-btn-icon-left" data-transition="slide">Google Place Library</a>
+			<a href="#page8" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">Get Open Data 2</a>
+			<a href="#page9" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left" data-transition="slide">台鐵查詢</a>
+			<a href="#page2" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left" data-transition="pop">Option</a>
+		</div>
+		<!--My Panel End-->
+		<div data-role="header">
+			<a href="#myPane9" class="ui-btn ui-corner-all ui-shadow ui-icon-bars ui-btn-icon-left">more</a>
+			<a href="#page1" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right" data-transition="fade">Home</a>
+			<h1>台鐵車次查詢</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+
+
+
+
+			<form method="post" action="#">
+
+				<fieldset class="ui-field-contain">
+					<label for="start">起乘站</label>
+					<select name="start" id="start">
+          <optgroup label="台東">
+            <option value="1632">台東</option>
+            <option value="1516">知本</option>
+          </optgroup>
+          <optgroup label="高雄">
+            <option value="1238">高雄</option>
+	            <option value="1242">新左營</option>
+          </optgroup>
+					<optgroup label="台北">
+            <option value="1008">台北</option>
+            <option value="1007">松山</option>
+          </optgroup>
+        </select>
+				</fieldset>
+
+				<fieldset class="ui-field-contain">
+					<label for="end">到達站</label>
+					<select name="end" id="end">
+          <optgroup label="台東">
+            <option value="1632">台東</option>
+            <option value="1516">知本</option>
+          </optgroup>
+          <optgroup label="高雄">
+            <option value="1238">高雄</option>
+	            <option value="1242">新左營</option>
+          </optgroup>
+					<optgroup label="台北">
+            <option value="1008">台北</option>
+            <option value="1007">松山</option>
+          </optgroup>
+        </select>
+				</fieldset>
+
+				<fieldset class="ui-field-contain">
+					<label for="time">搭乘時間</label>
+					<select name="time" id="time">
+          <optgroup label="上午">
+            <option value="0600">6:00</option>
+            <option value="0900">9:00</option>
+          </optgroup>
+          <optgroup label="下午">
+            <option value="1300">1:00</option>
+	          <option value="1800">6:00</option>
+          </optgroup>
+        </select>
+				</fieldset>
+
+				<fieldset class="ui-field-contain">
+					<label for="day">搭乘日期</label>
+					<select name="day" id="day">
+          <optgroup label="6月">
+            <option value="06/21">6月21日</option>
+            <option value="06/22">6月22日</option>
+						<option value="06/22">6月23日</option>
+						<option value="06/22">6月24日</option>
+						<option value="06/22">6月25日</option>
+						<option value="06/22">6月26日</option>
+						<option value="06/22">6月27日</option>
+						<option value="06/22">6月28日</option>
+						<option value="06/22">6月29日</option>
+						<option value="06/22">6月30日</option>
+          </optgroup>
+          <optgroup label="7月">
+            <option value="07/01">7月1日</option>
+						<option value="07/02">7月2日</option>
+						<option value="07/03">7月3日</option>
+						<option value="07/04">7月4日</option>
+						<option value="07/05">7月5日</option>
+	          <option value="07/06">7月6日</option>
+          </optgroup>
+        </select>
+				</fieldset>
+				<center>
+					<input type="reset" data-inline="true" value="清除">
+					<input type="button" id="railway_button" data-inline="true" value="查詢">
+				</center>
+			</form>
+			<center>
+				<a id="railway">查詢結果</a>
+			</center>
+		</div>
+
+		<div data-role="footer">
+			<h1>By Haoyu</h1>
+		</div>
+	</div>
+
+
+
 
 </body>
-</html>
